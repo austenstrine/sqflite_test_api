@@ -1,0 +1,4 @@
+com.gogreenentinc.sqflite_test_api
+drawable launch_background
+mipmap ic_launcher
+style LaunchTheme

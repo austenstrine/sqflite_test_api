@@ -1,0 +1,4 @@
+#Wed Aug 14 21:58:42 MDT 2019
+base.0=/Users/admin/GoGreen-Projects/sqflite_test_api/build/app/intermediates/transforms/dexMerger/debug/0
+path.0=classes.dex
+renamed.0=classes.dex
