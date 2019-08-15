@@ -8,14 +8,21 @@ class Item implements JSONSerializable {
   static final Item example = Item(
       inventory: 0,
       name: "Example Name",
-      category: "Example Category",
+      //categories: ["Example Category"],
+      price: 0.50,
+      mongoID: {"\$id":"8447aa9608663R9"},
       upc: "844796086639");
 
   final String name;
-  final String category;
+  final Map<String, String> mongoID;
+  //final List<String> categories;
   final int inventory;
+  final double price;
   final String upc;
-  Item({this.name, this.category, this.inventory, this.upc});
+  final DateTime dateCreated = DateTime.now();
+  Item({this.name, //this.categories,
+         this.inventory, this.upc, this.price, this.mongoID
+  });
   @override
   factory Item.fromJson(Map<String, dynamic> json) => _$ItemFromJson(json);
   @override
@@ -36,5 +43,5 @@ class Item implements JSONSerializable {
   }
 }
 
-enum ItemSearchParameter{name,category,upc}
+enum ItemSearchParameter{name,categories,upc}
 

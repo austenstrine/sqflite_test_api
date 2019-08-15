@@ -251,13 +251,19 @@ class AppPersistenceManager {
       FSO getItemFSO(FSO fso, SQLinked<Item> sqItem) {//move to class body???
         print("in comparison closure");
         switch (paramEnum) {
-          case ItemSearchParameter.category:
+          case ItemSearchParameter.categories:
             {
-              fso = this.stringComparison(
-                  optionalString: sqItem.mutableObject.category,
-                  query: query,
-                  fso: fso);
-              print("outside of string comparison fso is '$fso'");
+//              for(String category in sqItem.mutableObject.categories)
+//              {
+//                fso = this.stringComparison (
+//                    optionalString: category,
+//                    query: query,
+//                    fso: fso);
+//                if(fso == FSO.first){
+//                  break;
+//                }
+//              }
+//              print ("outside of string comparison fso is '$fso'");
               break;
             }
           case ItemSearchParameter.upc:

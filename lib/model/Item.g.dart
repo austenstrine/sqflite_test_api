@@ -9,15 +9,17 @@ part of 'Item.dart';
 Item _$ItemFromJson(Map<String, dynamic> json) {
   return Item(
     name: json['name'] as String,
-    category: json['category'] as String,
     inventory: json['inventory'] as int,
     upc: json['upc'] as String,
+    price: (json['price'] as num).toDouble(),
+    mongoID: Map<String, String>.from(json['mongoID'] as Map),
   );
 }
 
 Map<String, dynamic> _$ItemToJson(Item instance) => <String, dynamic>{
       'name': instance.name,
-      'category': instance.category,
+      'mongoID': instance.mongoID,
       'inventory': instance.inventory,
+      'price': instance.price,
       'upc': instance.upc,
     };

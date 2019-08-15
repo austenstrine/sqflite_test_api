@@ -113,7 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
         exampleObject: Item.example,
         parameters: [
           RawValue.itemSearchParameter(ItemSearchParameter.name),
-          RawValue.itemSearchParameter(ItemSearchParameter.category)
+          RawValue.itemSearchParameter(ItemSearchParameter.categories)
         ]).then((results) {
       _searchResults = results;
       if (_searchBarVisible) {
@@ -172,9 +172,11 @@ class _MyHomePageState extends State<MyHomePage> {
       lastInventory = lastItem.mutableObject.inventory;
     }
     Item newItem = Item(
-        category: "Cat" + "${lastInventory + 1}",
+        //categories: ["Cat" + "${lastInventory + 1}"],
         name: "Name,,,," + "${lastInventory + 1}",
         inventory: lastInventory + 1,
+        mongoID: {"\$id":"${lastInventory + 1}"},
+        price: Item.example.price + (lastInventory + 1).toDouble(),
         upc: Item.example.upc + "$lastInventory");
     SQLinked<Item>().newDBLink(object: newItem).then((sqLink) {
       _allItems.add(sqLink);
@@ -199,10 +201,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Text(sqLink.mutableObject.name)),
               Padding(
                   padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                  child: Text(sqLink.mutableObject.category)),
+                  child: Text("\$${sqLink.mutableObject.price}")),
               Padding(
                   padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                  child: Text("${sqLink.mutableObject.inventory}"))
+                  child: Text("${sqLink.mutableObject.inventory} available"))
             ]));
       });
     } else {
