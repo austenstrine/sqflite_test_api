@@ -13,7 +13,11 @@ comment IN line 175 of main.dart:
   
 comment IN line 18 of Item.dart:
 
-  `final List<String> categories;`
+  `final List<String> categories;`'
+  
+comment IN the categories parameter on line 23 of Item.dart:
+
+  `this.categories,`
   
 comment OUT lines 8-14 of Item.dart:
 ```
